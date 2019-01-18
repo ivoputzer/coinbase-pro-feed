@@ -1,4 +1,60 @@
 {
   "name": "coinbase-pro-feed",
-  "version": "0.0.0-draft.0"
+  "version": "0.0.1",
+  "description": "lightweight coinbase pro websocket feed implementation",
+  "main": "index.js",
+  "bin": {
+    "coinbase-pro-feed": "bin/index.js"
+  },
+  "man": [
+    "man/coinbase-pro-feed.1"
+  ],
+  "config": {
+    "coinbase_pro_socket_address": "ws-feed.pro.coinbase.com",
+    "coinbase_pro_socket_sandbox_address": "ws-feed-public.sandbox.pro.coinbase.com"
+  },
+  "standard": {
+    "global": [
+      "test"
+    ]
+  },
+  "dependencies": {
+    "coinbase-pro-api": "^1.0.0",
+    "ws": "^6.1.2"
+  },
+  "devDependencies": {
+    "m.test": "0.0.57"
+  },
+  "scripts": {
+    "node": "node",
+    "test": "m.test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ivoputzer/coinbase-pro-feed.git"
+  },
+  "keywords": [
+    "coinbase",
+    "pro",
+    "exchange",
+    "websocket",
+    "ws",
+    "wss",
+    "gdax",
+    "secure",
+    "http",
+    "https",
+    "client",
+    "real-time",
+    "trading"
+  ],
+  "author": "Ivo von Putzer Reibegg <ivo.putzer@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ivoputzer/coinbase-pro-feed/issues"
+  },
+  "homepage": "https://github.com/ivoputzer/coinbase-pro-feed#readme",
+  "directories": {
+    "test": "test"
+  }
 }
