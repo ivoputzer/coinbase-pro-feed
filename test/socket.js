@@ -50,19 +50,6 @@ test('coinbase-pro-feed/socket', () => {
       const address = addressFor()
       deepStrictEqual(address, process.env.npm_package_config_coinbase_pro_socket_address)
     })
-
-//  exports.addressFor = ({ npm_config_coinbase_pro_socket_sandbox, npm_config_coinbase_pro_socket_address } = process.env, { coinbase_pro_socket_address, coinbase_pro_socket_sandbox_address } = config, { parseBoolean } = exports) => {
-//   if (npm_config_coinbase_pro_socket_address) {
-//     return npm_config_coinbase_pro_socket_address
-//   }
-
-//   if (parseBoolean(npm_config_coinbase_pro_socket_sandbox)) {
-//     return coinbase_pro_socket_sandbox_address
-//   }
-
-//   return coinbase_pro_socket_address
-// }
-
   })
 
   test('.messageFor', () => {
