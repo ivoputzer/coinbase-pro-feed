@@ -1,5 +1,5 @@
 test('coinbase-pro-feed/socket', () => {
-  const { deepStrictEqual } = require('assert')
+  const { ok, strictEqual, deepStrictEqual } = require('assert')
 
   test('.parseBoolean', () => {
     const { parseBoolean } = require('../socket')
@@ -57,6 +57,35 @@ test('coinbase-pro-feed/socket', () => {
 
     test('is callable', () => {
       deepStrictEqual(typeof messageFor, 'function')
+    })
+
+    test('returns authenticated subscription message', () => {
+      const message = JSON.parse(messageFor({
+        product_ids: ['btc-eur'],
+        channels: ['heartbeat', 'full']
+      }))
+
+      deepStrictEqual(message.product_ids, ['btc-eur'])
+      deepStrictEqual(message.channels, ['heartbeat', 'full'])
+    })
+
+    test('returns authenticated subscription message when configuration is present', () => {
+      const message = JSON.parse(messageFor({
+        product_ids: ['btc-eur'],
+        channels: ['heartbeat', 'full']
+      }, {
+        npm_config_coinbase_pro_api_key: 'key',
+        npm_config_coinbase_pro_api_passphrase: 'passphrase',
+        npm_config_coinbase_pro_api_secret: 'secret'
+      }))
+
+      deepStrictEqual(message.product_ids, ['btc-eur'])
+      deepStrictEqual(message.channels, ['heartbeat', 'full'])
+      ok(message.hasOwnProperty('timestamp'))
+      ok(message.hasOwnProperty('signature'))
+      strictEqual(message.key, 'key')
+      strictEqual(message.passphrase, 'passphrase')
+      strictEqual(message.type, 'subscribe')
     })
   })
 

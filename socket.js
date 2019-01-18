@@ -21,17 +21,16 @@ exports.addressFor = ({ npm_config_coinbase_pro_socket_sandbox, npm_config_coinb
 const util = require('coinbase-pro-api/util')
 
 exports.messageFor = ({ product_ids, channels }, { npm_config_coinbase_pro_api_key, npm_config_coinbase_pro_api_passphrase, npm_config_coinbase_pro_api_secret } = process.env, { signatureFor } = util) => {
-  return JSON.stringify({ product_ids, channels, type: 'subscribe' })
-  // const timestamp = 1e-3 * Date.now()
-  // return JSON.stringify({
-  //   product_ids,
-  //   channels,
-  //   timestamp,
-  //   signature: signatureFor({ timestamp, method: 'get', path: '/users/self/verify' }, { npm_config_coinbase_pro_api_secret }),
-  //   key: npm_config_coinbase_pro_api_key,
-  //   passphrase: npm_config_coinbase_pro_api_passphrase,
-  //   type: 'subscribe'
-  // })
+  const timestamp = 1e-3 * Date.now()
+  return JSON.stringify({
+    product_ids,
+    channels,
+    timestamp,
+    signature: signatureFor({ timestamp, method: 'get', path: '/users/self/verify' }, { npm_config_coinbase_pro_api_secret }),
+    key: npm_config_coinbase_pro_api_key,
+    passphrase: npm_config_coinbase_pro_api_passphrase,
+    type: 'subscribe'
+  })
 }
 
 exports.socketFor = (product_ids, { channels = ['full'] } = Object.prototype, env = process.env, Socket = require('ws'), { addressFor, messageFor } = exports) => {
