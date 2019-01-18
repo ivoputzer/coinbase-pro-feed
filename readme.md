@@ -3,7 +3,7 @@ coinbase-pro-feed
 Lightweight [Coinbase Pro Websocket Feed](https://docs.pro.coinbase.com/#websocket-feed) implementation.
 
 [![travis](https://img.shields.io/travis/ivoputzer/coinbase-pro-feed.svg?style=for-the-badge)](https://travis-ci.org/ivoputzer/coinbase-pro-feed)
-[![dependencies](https://img.shields.io/badge/dependencies-2-blue.svg?style=for-the-badge&colorB=44CC11)](package.json)
+[![dependencies](https://img.shields.io/badge/dependencies-2-blue.svg?style=for-the-badge&colorB=44CC11)](https://www.npmjs.com/package/coinbase-pro-feed?activeTab=dependencies)
 [![coverage status](https://img.shields.io/coveralls/ivoputzer/coinbase-pro-feed.svg?style=for-the-badge)](https://coveralls.io/github/ivoputzer/coinbase-pro-feed?branch=master)
 [![linter](https://img.shields.io/badge/coding%20style-standard-brightgreen.svg?style=for-the-badge)](http://standardjs.com/)
 
