@@ -5,5 +5,7 @@ const { feedFor } = require('..')
 
 feedFor(process.argv.slice(2), { objectMode: false })
   .on('error', console.error)
-  .on('data', process.stdout.write.bind(process.stdout, EOL))
+  .once('data', function () {
+    this.on('data', process.stdout.write.bind(process.stdout, EOL))
+  })
   .pipe(process.stdout)
