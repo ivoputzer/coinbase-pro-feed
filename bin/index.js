@@ -1,11 +1,18 @@
 #!/usr/bin/env node
 
+const { Transform } = require('stream')
 const { EOL } = require('os')
 const { feedFor } = require('..')
 
 feedFor(process.argv.slice(2), { objectMode: false })
-  .on('error', console.error)
-  .once('data', function () {
-    this.on('data', process.stdout.write.bind(process.stdout, EOL))
-  })
+  .pipe(
+    new Transform({
+      transform (buffer, _, done) {
+        done(null, Buffer.concat([buffer, Buffer.from(EOL)]))
+      },
+      flush (done) {
+        done(null)
+      }
+    })
+  )
   .pipe(process.stdout)

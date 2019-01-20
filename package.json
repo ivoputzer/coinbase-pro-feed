@@ -1,6 +1,6 @@
 {
   "name": "coinbase-pro-feed",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "description": "lightweight coinbase pro websocket feed implementation",
   "main": "index.js",
   "bin": {
