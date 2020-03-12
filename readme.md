@@ -24,10 +24,10 @@ The feed wraps websocket client using `stream.Readable`:
 ```js
 const { feedFor } = require('coinbase-pro-feed')
 
-feedFor(['btc-eur'], { objectMode: false }) // when false
+feedFor(['BTC-EUR'], { objectMode: false }) // when false
   .pipe(process.stdout)                     // data event invokes raw buffer
 
-feedFor(['btc-eur'], { objectMode: true }) // when true
+feedFor(['BTC-EUR'], { objectMode: true }) // when true
   .on('data', console.log)                 // data event invokes parsed object
 ```
 
@@ -41,7 +41,7 @@ The websocket client allows you to connect and listen to exchange messages.
 ```js
 const { feedFor } = require('coinbase-pro-feed')
 
-socketFor(['btc-eur'], { channels })
+socketFor(['BTC-EUR'], { channels })
   .on('open', () => {
     console.log('open') // socket connected
   })
@@ -65,7 +65,7 @@ npm install --global coinbase-pro-feed
 
 #### Usage
 ```shell
-coinbase-pro-feed btc-eur eth-eur ltc-eur
+coinbase-pro-feed BTC-EUR ETH-EUR LTC-EUR
 
 # stdout compatible with http://jsonlines.org
 ```
